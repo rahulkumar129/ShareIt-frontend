@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Cards.css";
 import Card from "./Card";
+import "dotenv/config";
 
 function Cards() {
 	let [posts, setPosts] = useState([]);
@@ -9,7 +10,7 @@ function Cards() {
 	useEffect(() => {
 		(() => {
 			axios
-				.get("/api/posts")
+				.get("{process.env.URL}/api/posts")
 				.then((res) => {
 					setPosts(res.data);
 				})
