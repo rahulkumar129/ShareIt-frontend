@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+import "./Signup.css";
 
 function Signup() {
 	const [username, setUsername] = useState("");
@@ -35,52 +35,40 @@ function Signup() {
 	}
 
 	return (
-		<div className="flex flex-col justify-center items-center mx-auto p-10 border-2 rounded-lg border-spacing-1 border-black w-1/2">
-			<div className="mb-5 w-full">
-				<label className="block mb-2 text-sm font-medium text-gray-900">
-					Username
+		<form action="/auth/signup" method="post">
+			<div className="container">
+				<label htmlFor="uname">
+					<b>Username</b>
 				</label>
 				<input
 					type="text"
-					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-3"
-					onChange={(e) => setUsername(e.target.value)}
+					placeholder="Enter Username"
+					name="uname"
 					required
 				/>
-			</div>
-			<div className="mb-5 w-full">
-				<label className="block mb-2 text-sm font-medium text-gray-900">
-					Email
+
+				<label htmlFor="email">
+					<b>Email</b>
 				</label>
 				<input
 					type="email"
-					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-3"
-					onChange={(e) => setEmail(e.target.value)}
+					placeholder="Enter Email"
+					name="email"
 					required
 				/>
-			</div>
-			<div className="mb-5 w-full">
-				<label className="block mb-2 text-sm font-medium text-gray-900">
-					Password
+				<label htmlFor="psw">
+					<b>Password</b>
 				</label>
 				<input
 					type="password"
-					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-3"
-					onChange={(e) => setPassword(e.target.value)}
+					placeholder="Enter Password"
+					name="psw"
 					required
 				/>
+
+				<button type="submit">Sign Up</button>
 			</div>
-			<button
-				onClick={async () => {
-					const res = await signUpRequest();
-					if (res && res.status === 200) {
-						redirectafterSignUp();
-					}
-				}}
-				className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full p-3 text-center"
-			>
-				Login
-			</button>
-		</div>
+		</form>
 	);
 }
 

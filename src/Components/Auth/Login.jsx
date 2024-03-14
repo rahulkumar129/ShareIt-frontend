@@ -1,5 +1,13 @@
 import React, { useState } from "react";
+import "./Login.css";
 import axios from "axios";
+
+async function loginRequest() {
+	const username = document.getElementById("username").value;
+	const password = document.getElementById("password").value;
+	let res = await axios.post("auth/login", { username, password });
+	return res;
+}
 
 function Login() {
 	const [username, setUsername] = useState("");
@@ -33,40 +41,43 @@ function Login() {
 	}
 
 	return (
-		<div className="flex flex-col justify-center items-center mx-auto p-10 border-2 rounded-lg border-spacing-1 border-black w-1/2">
-			<div className="mb-5 w-full">
-				<label className="block mb-2 text-sm font-medium text-gray-900">
-					Username
+		<div className="form">
+			<div className="container">
+				<label htmlFor="username">
+					<b>Username</b>
 				</label>
 				<input
+					id="username"
 					type="text"
-					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-3"
-					onChange={(e) => setUsername(e.target.value)}
+					placeholder="Enter Username"
+					name="uname"
 					required
 				/>
-			</div>
-			<div className="mb-5 w-full">
-				<label className="block mb-2 text-sm font-medium text-gray-900">
-					Password
+
+				<label htmlFor="psw">
+					<b>Password</b>
 				</label>
 				<input
+					id="password"
 					type="password"
-					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-3"
-					onChange={(e) => setPassword(e.target.value)}
+					placeholder="Enter Password"
+					name="password"
 					required
 				/>
+
+				<button
+					id="sumbit"
+					onClick={async () => {
+						let res = await loginRequest();
+						console.log(res);
+						// setResponse(res);
+						setResponse(res["data"]["message"]);
+					}}
+				>
+					Login
+				</button>
+				<span>{response}</span>
 			</div>
-			<button
-				onClick={async () => {
-					const res = await loginRequest();
-					if (res && res.status === 200) {
-						redirectafterlogin();
-					}
-				}}
-				className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full p-3 text-center"
-			>
-				Login
-			</button>
 		</div>
 	);
 }
