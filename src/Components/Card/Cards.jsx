@@ -22,7 +22,7 @@ function Cards() {
 	return (
 		<div className="cards">
 			{posts.map((post, index) => (
-				<Card key={index} image={post.image} user={post.user} caption={post.caption}/>
+				<Card key={index} image={post.image} user={post.username} caption={post.caption}/>
 			))}
 		</div>
 	);

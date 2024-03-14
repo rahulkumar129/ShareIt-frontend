@@ -25,7 +25,7 @@ function Navbarcomp() {
 	const UserCrediantials = sessionStorage.getItem("User Crediantials");
 	return (
 		<nav>
-			<Link id="icon" to={"/"}>
+			<Link id="icon" to={"/home"}>
 				ShareIt
 			</Link>
 			{UserCrediantials ? null : (
