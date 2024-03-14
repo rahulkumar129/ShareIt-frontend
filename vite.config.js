@@ -7,8 +7,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": `{process.env.URL}`,
-      "/auth": `{process.env.URL}`,
+      "/api": `{https://test-eb7z.vercel.app/}`,
+      "/auth": `{https://test-eb7z.vercel.app/}`,
     },
   },
 });
