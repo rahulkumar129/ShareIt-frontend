@@ -8,12 +8,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://test-eb7z.vercel.app',
+        target: 'https://share-it-backend-six.vercel.app',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
       '/auth': {
-        target: 'https://test-eb7z.vercel.app',
+        target: 'https://share-it-backend-six.vercel.app',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/auth/, '')
       }
