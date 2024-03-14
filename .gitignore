@@ -25,3 +25,7 @@ dist-ssr
 
 # Package files
 .env
+/.vite
+public
+.eslintrc.cjs
+/package.json

@@ -12,6 +12,7 @@ function Cards() {
 				.get("/api/posts")
 				.then((res) => {
 					setPosts(res.data);
+					// console.log(res);
 				})
 				.catch((error) => {
 					console.log("Cannot get post data", error);

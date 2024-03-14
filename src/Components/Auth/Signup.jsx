@@ -14,7 +14,7 @@ function Signup() {
 				JSON.stringify(UserCredentials)
 			);
 		});
-		window.location.replace("/home");
+		window.location.replace("/");
 	};
 
 	async function signUpRequest() {

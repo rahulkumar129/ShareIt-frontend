@@ -13,7 +13,7 @@ function Login() {
 				JSON.stringify(UserCredentials)
 			);
 		});
-		window.location.replace("/home");
+		window.location.replace("/");
 	};
 
 	async function loginRequest() {
