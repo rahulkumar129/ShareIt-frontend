@@ -1,0 +1,31 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "./Cards.css";
+import Card from "./Card";
+
+function Cards() {
+	let [posts, setPosts] = useState([]);
+
+	useEffect(() => {
+		(() => {
+			axios
+				.get("/api/posts")
+				.then((res) => {
+					setPosts(res.data);
+				})
+				.catch((error) => {
+					console.log("Cannot get post data", error);
+				});
+		})();
+	}, []);
+
+	return (
+		<div className="cards">
+			{posts.map((post, index) => (
+				<Card key={index} image={post.image} user={post.user} caption={post.caption}/>
+			))}
+		</div>
+	);
+}
+
+export default Cards;
