@@ -7,9 +7,16 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      // "/api": `{https://test-eb7z.vercel.app}`,
-      // "/auth": `{https://test-eb7z.vercel.app}`,
-      "/https://share-it-frontend-inky.vercel.app": `{https://test-eb7z.vercel.app}`,
+      '/api': {
+        target: 'https://test-eb7z.vercel.app',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      },
+      '/auth': {
+        target: 'https://test-eb7z.vercel.app',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/auth/, '')
+      }
     },
   },
 });
