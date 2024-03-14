@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Cards.css";
 import Card from "./Card";
-import "dotenv/config";
 
 function Cards() {
 	let [posts, setPosts] = useState([]);
@@ -10,10 +9,9 @@ function Cards() {
 	useEffect(() => {
 		(() => {
 			axios
-				.get("{process.env.URL}/api/posts")
+				.get("/api/posts")
 				.then((res) => {
 					setPosts(res.data);
-					// console.log(res);
 				})
 				.catch((error) => {
 					console.log("Cannot get post data", error);
@@ -24,7 +22,7 @@ function Cards() {
 	return (
 		<div className="cards">
 			{posts.map((post, index) => (
-				<Card key={index} image={post.image} user={post.user} caption={post.caption}/>
+				<Card key={index} image={post.image} user={post.username} caption={post.caption}/>
 			))}
 		</div>
 	);

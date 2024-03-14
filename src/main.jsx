@@ -1,6 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 import React from "react";
 import { useState } from "react";
 import ReactDOM from "react-dom/client";
@@ -17,7 +14,7 @@ const router = createBrowserRouter([
 		path: "/",
 		element: <App />,
 		children: [
-			{ path: "", element: <Cards /> },
+			{ path: "home", element: <Cards /> },
 			{ path: "login", element: <Login /> },
 			{ path: "signup", element: <Signup /> },
 		],
