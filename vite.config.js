@@ -7,8 +7,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": `{process.env.URL}:${process.env.PORT || 4000}`,
-      "/auth": `{process.env.URL}:${process.env.PORT || 4000}`,
+      "/api": `{process.env.URL}`,
+      "/auth": `{process.env.URL}`,
     },
   },
 });
