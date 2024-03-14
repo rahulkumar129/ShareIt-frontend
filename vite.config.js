@@ -10,12 +10,12 @@ export default defineConfig({
       '/api': {
         target: 'https://share-it-backend-six.vercel.app',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/api/, '/api'),
       },
       '/auth': {
         target: 'https://share-it-backend-six.vercel.app',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/auth/, '')
+        rewrite: (path) => path.replace(/^\/auth/, '/auth')
       }
     },
   },
