@@ -33,7 +33,7 @@ function Post() {
 				</label>
 				<input
 					type="text"
-					className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-1/2 p-5"
+					className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-5"
 					onChange={(e) => setPostTitle(e.target.value)}
 					required
 				/>
@@ -45,7 +45,7 @@ function Post() {
 
 				<input
 					type="text"
-					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5"
+					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 					onChange={(e) => setImageUrl(e.target.value)}
 					required
 				/>
@@ -56,7 +56,7 @@ function Post() {
 				</label>
 				<input
 					type="text"
-					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5"
+					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 					onChange={(e) => setCaption(e.target.value)}
 					required
 				/>

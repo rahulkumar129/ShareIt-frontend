@@ -13,6 +13,7 @@ function Login() {
 				JSON.stringify(UserCredentials)
 			);
 		});
+		window.location.reload();
 		window.location.replace("/home");
 	};
 
