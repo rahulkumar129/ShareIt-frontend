@@ -12,8 +12,11 @@ function Post() {
 			return "Please provide a post title and an image URL!!";
 		}
 		try {
+			const username = JSON.parse(
+				sessionStorage.getItem("User Credentials")
+			)["username"];
 			const res = await axios.post("/api/upload", {
-				username: "rahul",
+				username,
 				postTitle,
 				imageUrl,
 				caption,
